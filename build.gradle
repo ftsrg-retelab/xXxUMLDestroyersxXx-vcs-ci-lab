@@ -3,5 +3,9 @@ subprojects {
 
   repositories {
     jcenter()
+    mavenCentral()
+  }
+  dependencies {
+    compile 'com.google.guava:guava:24.0-jre'
   }
 }

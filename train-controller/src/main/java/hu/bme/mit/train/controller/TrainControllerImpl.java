@@ -1,12 +1,16 @@
 package hu.bme.mit.train.controller;
 
+import com.google.common.graph.Graph;
 import hu.bme.mit.train.interfaces.TrainController;
+import com.google.*;
+
 
 public class TrainControllerImpl implements TrainController {
 
 	private int step = 0;
 	private int referenceSpeed = 0;
 	private int speedLimit = 0;
+	private Tachograph tac;
 
 	@Override
 	public void followSpeed() {
