@@ -10,7 +10,7 @@ The application represents a simple train controller system with the following t
 * Controller: The controller is responsible for controlling the reference speed of the train. The reference speed is set by the user, but the speed limit must also be kept.
 * User: The user can manipulate the reference speed of the train using a joystick.
 
-###Setting the reference speed of the train works in the following way.
+### Setting the reference speed of the train works in the following way.
  The user can set the position of a joystick, which can be zero or a positive/negative number. In each time unit, the controller adds the position of the joystick to the current reference speed, therefore the reference speed does not change if the position is zero, it is incremented if the position is positive and it is decremented if the position is negative. After each change, the speed limit is checked and enforced. The figure below illustrates an example.
 
 ![speed example](doc/speed_example.png)
