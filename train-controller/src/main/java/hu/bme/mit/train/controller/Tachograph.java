@@ -1,7 +1,6 @@
 package hu.bme.mit.train.controller;
 
 
-import com.google.*;
 import com.google.common.collect.Table;
 import com.google.errorprone.annotations.CompatibleWith;
 import org.checkerframework.checker.nullness.compatqual.NullableDecl;
