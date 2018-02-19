@@ -3,7 +3,11 @@
 *This is a sample application for the verification laboratory.*
 
 ## Overview
+
 **Itt szerkesztette branch-B**
+
+**Itt szerkesztettem az A branchből**
+
 The application represents a simple train controller system with the following three components.
 
 * Sensor: The sensor can detect the change in the speed limit of the track and can signal in such cases to the controller.
