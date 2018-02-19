@@ -17,7 +17,7 @@ public class TrainTachographTest {
     @Test
     public void ThisIsAnExampleTestStub() {
         tac.put(3, 3, 0);
-        Assert.assertFalse(tac.isEmpty());
+        Assert.assertTrue(tac.isEmpty());
 
     }
 }
