@@ -46,7 +46,7 @@ public class Tachograph implements Table{
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return currentTime > 0;
     }
 
     @Override
