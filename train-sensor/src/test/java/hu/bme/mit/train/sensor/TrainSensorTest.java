@@ -20,6 +20,7 @@ public class TrainSensorTest {
 	 TrainController controller = new TrainControllerImpl();
 	 TrainUser user = new TrainUserImpl(controller);
 	 TrainSensor sensor = new TrainSensorImpl(controller, user);
+	 
 	
     @Before
     public void before() {
@@ -31,6 +32,11 @@ public class TrainSensorTest {
     public void AlarmAtHighLimitTest() {
        sensor.overrideSpeedLimit(600);
        assertTrue(user.getAlarmState());
+    }
+    @Test
+    public void NoAlarmNormalFunction() {
+    	sensor.overrideSpeedLimit(20);
+    	assertFalse(user.getAlarmState());
     }
     
     @Test
@@ -49,10 +55,6 @@ public class TrainSensorTest {
     	
     }
     
-    @Test
-    public void NoAlarmNormalFunction() {
-    	sensor.overrideSpeedLimit(20);
-    	assertFalse(user.getAlarmState());
-    }
+
     
 }
