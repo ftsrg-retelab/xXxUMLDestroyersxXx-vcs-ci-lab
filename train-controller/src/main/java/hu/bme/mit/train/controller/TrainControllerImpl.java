@@ -38,7 +38,7 @@ public class TrainControllerImpl implements TrainController {
 
 		    Future<?> f = service.submit(r);
 
-		    f.get((long) 0.01, TimeUnit.MINUTES);     // attempt the task for two minutes
+		    f.get(500, TimeUnit.MILLISECONDS);     // attempt the task for two minutes
 		}
 		catch (final InterruptedException e) {
 		    // The thread was interrupted during sleep, wait or join
