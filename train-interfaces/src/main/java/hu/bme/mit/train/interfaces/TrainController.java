@@ -11,5 +11,6 @@ public interface TrainController {
 	void setJoystickPosition(int joystickPosition);
 
 	void emergencyBrake();
+	
 
 }
