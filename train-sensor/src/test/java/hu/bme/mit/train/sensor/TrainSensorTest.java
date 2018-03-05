@@ -29,29 +29,29 @@ public class TrainSensorTest {
 
     @Test
     public void AlarmAtHighLimitTest() {
-       controller.setSpeedLimit(600);
+       sensor.overrideSpeedLimit(600);
        assertTrue(user.getAlarmState());
     }
     
     @Test
     public void AlarmAtLowLimitTest() {
-    	controller.setSpeedLimit(-50);
+    	sensor.overrideSpeedLimit(-50);
     	assertTrue(user.getAlarmState());
     }
     
     @Test
     public void AlarmAtBigDifferenceTest(){
-    	controller.setSpeedLimit(300);
+    	sensor.overrideSpeedLimit(300);
     	controller.setJoystickPosition(280);
     	controller.followSpeed();
-    	controller.setSpeedLimit(100);
+    	sensor.overrideSpeedLimit(100);
     	assertTrue(user.getAlarmState());
     	
     }
     
     @Test
     public void NoAlarmNormalFunction() {
-    	controller.setSpeedLimit(20);
+    	sensor.overrideSpeedLimit(20);
     	assertFalse(user.getAlarmState());
     }
     
