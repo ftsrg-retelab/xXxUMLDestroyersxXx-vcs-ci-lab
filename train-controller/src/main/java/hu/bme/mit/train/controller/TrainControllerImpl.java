@@ -24,7 +24,7 @@ public class TrainControllerImpl implements TrainController {
 	Timer t;
 	
 	
-	TrainControllerImpl() {
+	public TrainControllerImpl() {
 		t = new Timer();
 		ExecutorService service = Executors.newSingleThreadExecutor();
 
