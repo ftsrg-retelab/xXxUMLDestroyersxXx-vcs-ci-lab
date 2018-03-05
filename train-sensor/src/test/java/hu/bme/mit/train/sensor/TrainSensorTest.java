@@ -1,15 +1,11 @@
 package hu.bme.mit.train.sensor;
 
-import org.junit.Assert;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
-import hu.bme.mit.train.controller.*;
 import hu.bme.mit.train.interfaces.TrainController;
 import hu.bme.mit.train.interfaces.TrainSensor;
 import hu.bme.mit.train.interfaces.TrainUser;
-import hu.bme.mit.train.user.TrainUserImpl;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -17,42 +13,43 @@ import static org.mockito.Mockito.*;
 
 public class TrainSensorTest {
 
-	 TrainController controller = new TrainControllerImpl();
-	 TrainUser user = new TrainUserImpl(controller);
-	 TrainSensor sensor = new TrainSensorImpl(controller, user);
+	 TrainController controller;
+	 TrainUser user;
+	 TrainSensor sensor;
 	
     @Before
     public void before() {
-
-        
+    	controller=mock(TrainController.class);
+    	user=mock(TrainUser.class);
+   	 	sensor = new TrainSensorImpl(controller, user);
     }
 
     @Test
-    public void AlarmAtHighLimitTest() {
-       controller.setSpeedLimit(600);
-       assertTrue(user.getAlarmState());
+    public void AlarmAtHighLimitTest() {   	 	
+       sensor.overrideSpeedLimit(600);
+       verify(user, times(1)).setAlarmState(true);
+       //assertTrue(user.getAlarmState());
     }
     
     @Test
     public void AlarmAtLowLimitTest() {
-    	controller.setSpeedLimit(-50);
-    	assertTrue(user.getAlarmState());
+    	sensor.overrideSpeedLimit(-50);
+        verify(user, times(1)).setAlarmState(true);
     }
     
     @Test
     public void AlarmAtBigDifferenceTest(){
-    	controller.setSpeedLimit(300);
-    	controller.setJoystickPosition(280);
-    	controller.followSpeed();
-    	controller.setSpeedLimit(100);
-    	assertTrue(user.getAlarmState());
+    	sensor.overrideSpeedLimit(300);
+    	when(controller.getReferenceSpeed()).thenReturn(280);
+    	sensor.overrideSpeedLimit(100);
+        verify(user, times(1)).setAlarmState(true);
     	
     }
     
     @Test
     public void NoAlarmNormalFunction() {
-    	controller.setSpeedLimit(20);
-    	assertFalse(user.getAlarmState());
+    	sensor.overrideSpeedLimit(20);
+        verify(user, times(1)).setAlarmState(false);
     }
     
 }
