@@ -13,9 +13,16 @@ import static org.mockito.Mockito.*;
 
 public class TrainSensorTest {
 
+<<<<<<< HEAD
 	 TrainController controller;
 	 TrainUser user;
 	 TrainSensor sensor;
+=======
+	 TrainController controller = new TrainControllerImpl();
+	 TrainUser user = new TrainUserImpl(controller);
+	 TrainSensor sensor = new TrainSensorImpl(controller, user);
+	 
+>>>>>>> 144702d5b2a61d7dc05bd59861919b9fbca70ff9
 	
     @Before
     public void before() {
@@ -35,6 +42,11 @@ public class TrainSensorTest {
        sensor.overrideSpeedLimit(600);
        assertTrue(user.getAlarmState());
 >>>>>>> 19496bbf7080e7fc4b5cb6fbd6075c7e0b074a93
+    }
+    @Test
+    public void NoAlarmNormalFunction() {
+    	sensor.overrideSpeedLimit(20);
+    	assertFalse(user.getAlarmState());
     }
     
     @Test
@@ -63,6 +75,7 @@ public class TrainSensorTest {
     	
     }
     
+<<<<<<< HEAD
     @Test
     public void NoAlarmNormalFunction() {
     	sensor.overrideSpeedLimit(20);
@@ -72,5 +85,8 @@ public class TrainSensorTest {
     	assertFalse(user.getAlarmState());
 >>>>>>> 19496bbf7080e7fc4b5cb6fbd6075c7e0b074a93
     }
+=======
+
+>>>>>>> 144702d5b2a61d7dc05bd59861919b9fbca70ff9
     
 }
