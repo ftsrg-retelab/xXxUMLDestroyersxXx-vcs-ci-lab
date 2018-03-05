@@ -8,4 +8,6 @@ subprojects {
   dependencies {
     compile 'com.google.guava:guava:24.0-jre'
   }
+
+	plugins { id "org.sonarqube" version "2.6.2" apply false }
 }
